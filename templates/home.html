@@ -48,11 +48,10 @@
             </a>
             <div class="message-area">
               <a href="/users/{{ msg.user.id }}">@{{ msg.user.username }}</a>
-              <p class="bio">{{ msg.user.bio }}</p> 
-              <p>{{ msg.text }}</p>
               <span class="text-muted">{{ msg.timestamp.strftime('%d %B %Y') }}</span>
+              <p>{{ msg.text }}</p>
             </div>
-            <form method="POST" action="/users/add_like/{{ msg.id }}" id="messages-form">
+            <form method="POST" action="/users/toggle_like/{{ msg.id }}" id="messages-form">
               <button class="
                 btn 
                 btn-sm 

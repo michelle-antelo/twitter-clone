@@ -112,7 +112,8 @@ class User(db.Model):
 
     likes = db.relationship(
         'Message',
-        secondary="likes"
+        secondary="likes",
+        primaryjoin=(Likes.message_id == id),
     )
 
     def __repr__(self):
@@ -129,6 +130,7 @@ class User(db.Model):
 
         found_user_list = [user for user in self.following if user == other_user]
         return len(found_user_list) == 1
+
 
     @classmethod
     def signup(cls, username, email, password, image_url):
